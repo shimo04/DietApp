@@ -25,15 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener
 {
-    EditText Email,Password;
-    Button Login;
-    TextView Register,ForgottenPass;
-
-    FirebaseAuth Auth;
-    DatabaseReference reference;
-    ProgressDialog pd;
+    private TextView register ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,82 +35,19 @@ public class LoginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Email = findViewById(R.id.IdEmail);
-        Password = findViewById(R.id.IdPassword);
-        Login = findViewById(R.id.BtnLogin);
-        Register = findViewById(R.id.IdRegister);
-        ForgottenPass = findViewById(R.id.IdForgottenPass);
 
-        Auth = FirebaseAuth.getInstance();
-        //Login.setOnClickListener(new View.OnClickListener()
-        //                               {
-                                  //         @Override
-          //                                 public void onClick (View view)
-           //                            {
-          //                                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
-          //                             }
+        register = (TextView) findViewById(R.id.Register);
+        register.setOnClickListener(this);
+   }
 
-            //                           }
-
-            //                   );
-
-        Login.setOnClickListener(new View.OnClickListener()
-                                           {
-                                            @Override
-                                            public void onClick (View view)
-                                            {
-                                                ProgressDialog pd = new ProgressDialog(LoginActivity.this);
-                                                pd.setMessage("please wait");
-                                                pd.show();
-
-                                                String strEmail = Email.getText().toString();
-                                                String strPass = Password.getText().toString();
-                                                if(TextUtils.isEmpty(strEmail) || TextUtils.isEmpty(strPass))
-                                                   {Toast.makeText(LoginActivity.this, "all feilds are required", Toast.LENGTH_SHORT).show();}
-                                                else
-                                                   {
-                                                      Auth.signInWithEmailAndPassword(strEmail,strPass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>()
-                                                     {
-                                                         @Override
-                                                         public void onComplete(@NonNull Task<AuthResult> task)
-                                                         {
-                                                             if (task.isSuccessful())
-                                                             {
-                                                                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(Auth.getCurrentUser().getUid());
-                                                                 reference.addValueEventListener(new ValueEventListener()
-                                                                     {
-                                                                     @Override
-                                                                     public void onDataChange(@NonNull DataSnapshot snapshot)
-                                                                     {
-                                                                         pd.dismiss();
-                                                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                                         startActivity(intent);
-                                                                         finish();
-                                                                     }
-
-                                                                     @Override
-                                                                     public void onCancelled(@NonNull DatabaseError error)
-                                                                     {
-                                                                         pd.dismiss();
-                                                                     }
-                                                                 });
-                                                             }
-                                                             else
-                                                             {
-                                                                 pd.dismiss();
-                                                                 Toast.makeText(LoginActivity.this,"Authentification failed", Toast.LENGTH_SHORT).show();
-                                                             }
-                                                         }
-                                                     }
-                                             );
-                                         }
-                                     }
-
-                                 }
-
-        );
-
-    }
-
+   @Override
+    public void onClick(View v)
+   {
+       switch (v.getId())
+       {
+           case R.id.Register:
+           startActivity((new Intent(this,RegisterActivity.class)));
+           break;
+       }
+   }
 }
