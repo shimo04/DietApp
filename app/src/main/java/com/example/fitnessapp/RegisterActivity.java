@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
 {
     private TextView Banner,BannerDescription;
-    private EditText NomPrenomText,AgeText,SexText,PoidsText,TailleText,EmailText,PassText;
+    private EditText NomPrenomText,AgeText,PoidsText,TailleText,EmailText,PassText;
     private Button RegisterBtn;
+    private RadioButton SexTextFemme, SexTextHomme;
     private ProgressBar ProgressB;
 
     private FirebaseAuth mAuth;
@@ -44,7 +45,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         NomPrenomText = (EditText)findViewById(R.id.NomPrenom);
         AgeText = (EditText)findViewById(R.id.Age);
-        SexText = (EditText)findViewById(R.id.Sex);
+        SexTextFemme = (RadioButton)findViewById(R.id.SexH);
+        SexTextHomme = (RadioButton)findViewById(R.id.SexH);
         PoidsText = (EditText)findViewById(R.id.Poids);
         TailleText = (EditText)findViewById(R.id.Taille);
         EmailText = (EditText)findViewById(R.id.IdEmail);
@@ -73,11 +75,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     {
         String NP = NomPrenomText.getText().toString().trim();
         String Ag = AgeText.getText().toString().trim();
-        String Sx = SexText.getText().toString().trim();
+        String SxF = SexTextFemme.getText().toString().trim();
+        String SxH = SexTextHomme.getText().toString().trim();
         String Pd = PoidsText.getText().toString().trim();
         String Tl = TailleText.getText().toString().trim();
         String Em = EmailText.getText().toString().trim();
         String Ps = PassText.getText().toString().trim();
+        String Sx ;
 
         if (NP.isEmpty())
         {
@@ -91,11 +95,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             AgeText.requestFocus();
             return;
         }
-        if (Sx.isEmpty())
+        if (SxH.isEmpty())
         {
-            SexText.setError("saisir votre Sexe");
-            SexText.requestFocus();
-            return;
+            Sx = SxH;
+        }
+        else
+        {
+            Sx = SxF;
         }
 
         if (Pd.isEmpty())
