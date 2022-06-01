@@ -53,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         PassText = (EditText)findViewById(R.id.Password);
 
         ProgressB = (ProgressBar)findViewById(R.id.ProgBar);
+        ProgressB.setVisibility((View.GONE));
     }
 
     @Override
@@ -157,7 +158,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                                               if (task.isSuccessful())
                                                                                               {
                                                                                                   Toast.makeText(RegisterActivity.this,"User est ajouté",Toast.LENGTH_LONG).show();
-                                                                                                  ProgressB.setVisibility((View.VISIBLE));
+                                                                                                  startActivity(new Intent(RegisterActivity.this,RegisterActivityActivity.class));
+                                                                                                  ProgressB.setVisibility((View.GONE));
                                                                                               }
                                                                                               else
                                                                                               {
