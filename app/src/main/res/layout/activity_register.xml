@@ -10,187 +10,113 @@
         android:id="@+id/IdRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="98dp"
         android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="538dp" />
 
     <TextView
         android:id="@+id/Banner"
-        android:layout_width="148dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="41dp"
+        android:layout_width="260dp"
+        android:layout_height="43dp"
         android:fontFamily="sans-serif"
-        android:text="DietApp"
+        android:text="Creer un compte"
         android:textColor="#673AB7"
         android:textColorHighlight="#673AB7"
         android:textColorHint="#673AB7"
         android:textColorLink="#512A97"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/NomPrenom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="38dp" />
 
     <TextView
         android:id="@+id/BannerDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         android:text="Hello"
-        app:layout_constraintEnd_toEndOf="@+id/Banner"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="80dp" />
 
     <EditText
         android:id="@+id/Poids"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginBottom="331dp"
+        android:layout_width="144dp"
+        android:layout_height="43dp"
         android:ems="10"
         android:hint="Poids"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/ProgressBar"
-        app:layout_constraintEnd_toEndOf="@+id/Taille"
-        app:layout_constraintStart_toStartOf="@+id/Taille"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="321dp" />
 
     <EditText
         android:id="@+id/Taille"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="66dp"
+        android:layout_width="169dp"
+        android:layout_height="41dp"
         android:ems="10"
         android:hint="Taille"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/IdEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Poids" />
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="321dp" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="0dp"
+        android:layout_width="334dp"
         android:layout_height="46dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="87dp"
         android:ems="10"
         android:hint="Mot de passe"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/ProgressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Taille" />
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="454dp" />
 
     <EditText
         android:id="@+id/IdEmail"
-        android:layout_width="0dp"
+        android:layout_width="334dp"
         android:layout_height="46dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="127dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/IdRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Poids" />
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="386dp" />
 
     <EditText
         android:id="@+id/Age"
-        android:layout_width="0dp"
+        android:layout_width="329dp"
         android:layout_height="46dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="174dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginBottom="173dp"
         android:ems="10"
         android:hint="Age"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Taille"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="174dp" />
 
     <EditText
         android:id="@+id/NomPrenom"
-        android:layout_width="0dp"
+        android:layout_width="329dp"
         android:layout_height="46dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginBottom="46dp"
         android:ems="10"
         android:hint="Nom et Prenom"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/Age"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BannerDescription" />
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <ProgressBar
-        android:id="@+id/ProgressBar"
+        android:id="@+id/ProgBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="54dp"
         android:layout_height="46dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/IdRegister"
-        app:layout_constraintTop_toBottomOf="@+id/IdRegister" />
+        tools:layout_editor_absoluteX="178dp"
+        tools:layout_editor_absoluteY="632dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        android:layout_marginBottom="99dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Banner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Password" />
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="632dp" />
 
     <RadioGroup
         android:id="@+id/SexGrp"
-        android:layout_width="0dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/Poids"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Age">
+        android:layout_width="329dp"
+        android:layout_height="74dp"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="227dp">
 
         <RadioButton
             android:id="@+id/SexH"

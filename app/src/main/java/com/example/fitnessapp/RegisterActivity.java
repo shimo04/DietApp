@@ -45,14 +45,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         NomPrenomText = (EditText)findViewById(R.id.NomPrenom);
         AgeText = (EditText)findViewById(R.id.Age);
-        SexTextFemme = (RadioButton)findViewById(R.id.SexH);
+        SexTextFemme = (RadioButton)findViewById(R.id.SexF);
         SexTextHomme = (RadioButton)findViewById(R.id.SexH);
         PoidsText = (EditText)findViewById(R.id.Poids);
         TailleText = (EditText)findViewById(R.id.Taille);
         EmailText = (EditText)findViewById(R.id.IdEmail);
         PassText = (EditText)findViewById(R.id.Password);
 
-        ProgressB = (ProgressBar)findViewById(R.id.ProgressBar);
+        ProgressB = (ProgressBar)findViewById(R.id.ProgBar);
     }
 
     @Override

@@ -14,6 +14,15 @@
         android:theme="@style/Theme.FitnessApp"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterProgrammeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterPoidsDureeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivityActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -28,6 +37,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
