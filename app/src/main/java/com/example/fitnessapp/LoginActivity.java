@@ -73,7 +73,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                ProgressBar.setVisibility(View.VISIBLE);
                break;
        }
-
    }
 
     private void userLogin()
