@@ -147,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                               {
                                                                                   if(task.isSuccessful())
                                                                                   {
-                                                                                      User user = new User (NP,Ag,Sx,Pd,Tl,Em);
+                                                                                      User user = new User (NP,Ag,Sx,Pd,Tl,Em,"");
                                                                                       FirebaseDatabase.getInstance().getReference("Users")
                                                                                               .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                                                                               .addOnCompleteListener(new OnCompleteListener<Void>()
@@ -158,7 +158,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                                               if (task.isSuccessful())
                                                                                               {
                                                                                                   Toast.makeText(RegisterActivity.this,"User est ajouté",Toast.LENGTH_LONG).show();
-                                                                                                  startActivity(new Intent(RegisterActivity.this,RegisterActivityActivity.class));
+                                                                                                  startActivity(new Intent(RegisterActivity.this,NomPrenomActivity.class));
                                                                                                   ProgressB.setVisibility((View.GONE));
                                                                                               }
                                                                                               else

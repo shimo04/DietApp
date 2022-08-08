@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class RegisterPoidsDureeActivity extends AppCompatActivity {
+public class SexActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_poids_duree);
+        setContentView(R.layout.activity_sex);
     }
 }

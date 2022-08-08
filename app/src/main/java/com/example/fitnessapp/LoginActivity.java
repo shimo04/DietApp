@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener
 {
     private TextView registerText,ForgottenPassText;
-    private  EditText EmailText,PasswordText;
+    private TextInputLayout EmailText,PasswordText;
     private Button SignIn;
 
     private  FirebaseAuth mAuth;
@@ -50,8 +51,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         SignIn =(Button)findViewById(R.id.Login);
         SignIn.setOnClickListener(this);
 
-        EmailText = (EditText)findViewById(R.id.Email);
-        PasswordText = (EditText)findViewById(R.id.Password);
+        EmailText = (TextInputLayout)findViewById(R.id.Email);
+        PasswordText = (TextInputLayout)findViewById(R.id.Password);
 
         ProgressBar = (ProgressBar)findViewById(R.id.ProgBar);
         ProgressBar.setVisibility(View.GONE);
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        switch (v.getId())
        {
            case R.id.Register:
-                startActivity((new Intent(this,RegisterActivity.class)));
+                startActivity((new Intent(this,InfoActivity.class)));
                 break;
            case R.id.Login:
                userLogin();
@@ -77,8 +78,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void userLogin()
    {
-       String Em = EmailText.getText().toString().trim();
-       String Pass = PasswordText.getText().toString().trim();
+       String Em = EmailText.getEditText().getText().toString().trim();
+       String Pass = PasswordText.getEditText().getText().toString().trim();
        if (Em.isEmpty())
        {
            EmailText.setError("saisir Email");
@@ -93,7 +94,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        }
 
        mAuth.signInWithEmailAndPassword(Em,Pass)
-               .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+               .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+       {
            @Override
            public void onComplete(@NonNull Task<AuthResult> task)
            {
@@ -107,6 +109,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                   // user.sendEmailVerification();
                    //Toast.makeText(LoginActivity.this,"Check your Email",Toast.LENGTH_LONG).show();
                    Toast.makeText(LoginActivity.this,"Failed to connect", Toast.LENGTH_LONG).show();
+                   ProgressBar.setVisibility(View.INVISIBLE);
                }
            }
        });
