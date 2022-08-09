@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private TextView Banner,BannerDescription;
     private EditText NomPrenomText,AgeText,PoidsText,TailleText,EmailText,PassText;
     private Button RegisterBtn;
     private RadioButton SexTextFemme, SexTextHomme;
@@ -37,13 +35,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mAuth = FirebaseAuth.getInstance();
 
-        Banner = (TextView)findViewById(R.id.Banner);
-        Banner.setOnClickListener(this);
-
         RegisterBtn = (Button)findViewById(R.id.IdRegister);
         RegisterBtn.setOnClickListener(this);
 
-        NomPrenomText = (EditText)findViewById(R.id.NomPrenom);
+        NomPrenomText = (EditText)findViewById(R.id.NomPrenomT);
         AgeText = (EditText)findViewById(R.id.Age);
         SexTextFemme = (RadioButton)findViewById(R.id.SexF);
         SexTextHomme = (RadioButton)findViewById(R.id.SexH);
@@ -59,17 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view)
     {
-        switch (view.getId())
-        {
-            case R.id.Banner:
-                startActivity((new Intent(this,MainActivity.class)));
-                break;
-            case R.id.IdRegister:
-            {
-                registerUser();
-                break;
-            }
-        }
+        registerUser();
     }
 
     private void registerUser()
@@ -138,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        ProgressB.setVisibility(View.GONE);
+
         mAuth.createUserWithEmailAndPassword(Em,Ps)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>()
                                                                           {
@@ -147,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                               {
                                                                                   if(task.isSuccessful())
                                                                                   {
-                                                                                      User user = new User (NP,Ag,Sx,Pd,Tl,Em,"");
+                                                                                      User user = new User (NP,Ag,Sx,Pd,Tl,Em);
                                                                                       FirebaseDatabase.getInstance().getReference("Users")
                                                                                               .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                                                                               .addOnCompleteListener(new OnCompleteListener<Void>()
@@ -159,12 +144,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                                               {
                                                                                                   Toast.makeText(RegisterActivity.this,"User est ajouté",Toast.LENGTH_LONG).show();
                                                                                                   startActivity(new Intent(RegisterActivity.this,NomPrenomActivity.class));
-                                                                                                  ProgressB.setVisibility((View.GONE));
+
                                                                                               }
                                                                                               else
                                                                                               {
                                                                                                   Toast.makeText(RegisterActivity.this,"Failed to Register", Toast.LENGTH_LONG).show();
-                                                                                                  ProgressB.setVisibility((View.GONE));
+
                                                                                               }
                                                                                           }
                                                                                       });

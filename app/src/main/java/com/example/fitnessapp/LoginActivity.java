@@ -2,16 +2,10 @@ package com.example.fitnessapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.transition.Transition;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,16 +15,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private TextView registerText,ForgottenPassText;
+    private TextView registerText;
     private TextInputLayout EmailText,PasswordText;
     private Button SignIn;
 
@@ -43,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         registerText = (TextView) findViewById(R.id.Register);
         registerText.setOnClickListener(this);
@@ -66,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        switch (v.getId())
        {
            case R.id.Register:
-                startActivity((new Intent(this,InfoActivity.class)));
+                startActivity(new Intent(LoginActivity.this,NomPrenomActivity.class));
                 break;
            case R.id.Login:
                userLogin();
@@ -114,4 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        });
 
    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
 }
