@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/allan"
-        android:text="Quel est votre objectif de poids ?"
+        android:text="Votre Objectif !"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EmailT"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="360dp"
         android:layout_height="62dp"
@@ -41,7 +42,32 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Objectif" />
+            android:hint="Poids objectif" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SemaineObjT"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="#171717"
+        app:boxStrokeColor="#171717"
+        app:endIconMode="clear_text"
+        app:hintTextColor="#0E0E0E"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailT"
+        app:layout_constraintVertical_bias="0.077">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Nombre de Semaines" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

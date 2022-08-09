@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#72C2E9"
-    tools:context=".ActivitePhysiqueActivity">
-
+    tools:context=".PlanActivity">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/allan"
-        android:text="Ton activité Physique !"
+        android:text="Choisissez un programme!"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +20,7 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivitePhyT"
+        android:id="@+id/PlanT"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="360dp"
         android:layout_height="62dp"
@@ -42,7 +41,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Activité Physique" />
+            android:hint="Programme" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

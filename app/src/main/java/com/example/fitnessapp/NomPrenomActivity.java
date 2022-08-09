@@ -36,9 +36,9 @@ public class NomPrenomActivity extends AppCompatActivity implements View.OnClick
 
     private void nomPrenomAdd()
     {
+        Intent intent = new Intent(NomPrenomActivity.this,AgeActivity.class);
         String Np = NpText.getEditText().getText().toString().trim();
 
-        Intent intent = new Intent(NomPrenomActivity.this,AgeActivity.class);
         intent.putExtra("nom",Np);
         startActivity(intent);
     }

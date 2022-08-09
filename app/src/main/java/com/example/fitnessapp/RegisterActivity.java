@@ -14,16 +14,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private EditText NomPrenomText,AgeText,PoidsText,TailleText,EmailText,PassText;
-    private Button RegisterBtn;
-    private RadioButton SexTextFemme, SexTextHomme;
-    private ProgressBar ProgressB;
+    private TextInputLayout EmailText, PassText ;
+    private Button SvBtn ;
 
     private FirebaseAuth mAuth;
 
@@ -35,20 +34,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mAuth = FirebaseAuth.getInstance();
 
-        RegisterBtn = (Button)findViewById(R.id.IdRegister);
-        RegisterBtn.setOnClickListener(this);
+        EmailText = (TextInputLayout)findViewById(R.id.EmailT);
+        PassText = (TextInputLayout)findViewById(R.id.PassT);
 
-        NomPrenomText = (EditText)findViewById(R.id.NomPrenomT);
-        AgeText = (EditText)findViewById(R.id.Age);
-        SexTextFemme = (RadioButton)findViewById(R.id.SexF);
-        SexTextHomme = (RadioButton)findViewById(R.id.SexH);
-        PoidsText = (EditText)findViewById(R.id.Poids);
-        TailleText = (EditText)findViewById(R.id.Taille);
-        EmailText = (EditText)findViewById(R.id.IdEmail);
-        PassText = (EditText)findViewById(R.id.Password);
-
-        ProgressB = (ProgressBar)findViewById(R.id.ProgBar);
-        ProgressB.setVisibility((View.GONE));
+        SvBtn =(Button)findViewById(R.id.Suivant);
+        SvBtn.setOnClickListener(this);
     }
 
     @Override
@@ -59,72 +49,39 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void registerUser()
     {
-        String NP = NomPrenomText.getText().toString().trim();
-        String Ag = AgeText.getText().toString().trim();
-        String SxF = SexTextFemme.getText().toString().trim();
-        String SxH = SexTextHomme.getText().toString().trim();
-        String Pd = PoidsText.getText().toString().trim();
-        String Tl = TailleText.getText().toString().trim();
-        String Em = EmailText.getText().toString().trim();
-        String Ps = PassText.getText().toString().trim();
-        String Sx ;
+        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+        String email = EmailText.getEditText().getText().toString().trim();
+        String pass = PassText.getEditText().getText().toString().trim();
 
-        if (NP.isEmpty())
-        {
-            NomPrenomText.setError("Saisir votre Nom et Prenom");
-            NomPrenomText.requestFocus();
-            return;
-        }
-        if (Ag.isEmpty())
-        {
-            AgeText.setError("saisir votre age");
-            AgeText.requestFocus();
-            return;
-        }
-        if (SxH.isEmpty())
-        {
-            Sx = SxH;
-        }
-        else
-        {
-            Sx = SxF;
-        }
+        Bundle extras = getIntent().getExtras();
+        String np = extras.getString("nom");
+        String ag = extras.getString("age");
+        String sx = extras.getString("sex");
+        String ps = extras.getString("poids");
+        String tl = extras.getString("taille");
+        String objPs = extras.getString("ObjPoids");
+        String objSem = extras.getString("ObjSemaines");
+        String act = extras.getString("Activite");
+        String plan = extras.getString("Plan");
 
-        if (Pd.isEmpty())
-        {
-            PoidsText.setError("saisir votre poids");
-            PoidsText.requestFocus();
-            return;
+        intent.putExtra("nom",np);
+        intent.putExtra("age",ag);
+        intent.putExtra("sex",sx);
+        intent.putExtra("poids",ps);
+        intent.putExtra("taille",tl);
+        intent.putExtra("ObjPoids",objPs);
+        intent.putExtra("ObjSemaines",objSem);
+        intent.putExtra("Activite",act);
+        intent.putExtra("Plan",plan);
+        intent.putExtra("Email",email);
+        intent.putExtra("Password",pass);
 
-        }
-        if(Tl.isEmpty())
-        {
-            TailleText.setError("saisir votre taille");
-            TailleText.requestFocus();
-            return;
-        }
-        //if (Patterns.EMAIL_ADDRESS.matcher(Em).matches())
-        //{
-          //  EmailText.setError("saisir votre email");
-            //EmailText.requestFocus();
-            //return;
-        //}
+       // startActivity(intent);
 
-        if (Ps.isEmpty())
-        {
-            PassText.setError("saisir votre Mot de passe");
-            PassText.requestFocus();
-            return;
-        }
-        if(Ps.length() < 6)
-        {
-            PassText.setError(" votre mot de passe doit etre au min 6 lettres ou chiffres");
-            PassText.requestFocus();
-            return;
-        }
+        //Toast.makeText(RegisterActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "
+               // +objPs+" "+objSem+" "+act+" "+plan+" "+email+" "+pass, Toast.LENGTH_LONG).show();
 
-
-        mAuth.createUserWithEmailAndPassword(Em,Ps)
+        mAuth.createUserWithEmailAndPassword(email,pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>()
                                                                           {
                                                                               @Override
@@ -132,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                               {
                                                                                   if(task.isSuccessful())
                                                                                   {
-                                                                                      User user = new User (NP,Ag,Sx,Pd,Tl,Em);
+                                                                                      User user = new User (np,ag,sx,ps,tl,objPs,objSem,act,plan,email,pass);
                                                                                       FirebaseDatabase.getInstance().getReference("Users")
                                                                                               .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                                                                               .addOnCompleteListener(new OnCompleteListener<Void>()
@@ -143,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                                                               if (task.isSuccessful())
                                                                                               {
                                                                                                   Toast.makeText(RegisterActivity.this,"User est ajouté",Toast.LENGTH_LONG).show();
-                                                                                                  startActivity(new Intent(RegisterActivity.this,NomPrenomActivity.class));
+                                                                                                  startActivity(intent);
 
                                                                                               }
                                                                                               else
@@ -159,4 +116,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         );
 
     }
+
+    //if (Patterns.EMAIL_ADDRESS.matcher(Em).matches())
+    //{
+    //  EmailText.setError("saisir votre email");
+    //EmailText.requestFocus();
+    //return;
+    //}
 }

@@ -10,17 +10,17 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class ActivitePhysiqueActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextInputLayout ActiviteText ;
+public class PlanActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextInputLayout PlanText ;
     private Button SvBtn ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activite_physique);
+        setContentView(R.layout.activity_plan);
 
-        ActiviteText = (TextInputLayout)findViewById(R.id.ActivitePhyT);
+        PlanText = (TextInputLayout)findViewById(R.id.PlanT);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
@@ -29,13 +29,13 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View v)
     {
-        activitePhysique();
+        planningOption();
     }
 
-    private void activitePhysique()
+    private void planningOption()
     {
-        Intent intent = new Intent(ActivitePhysiqueActivity.this,PlanActivity.class);
-        String Act = ActiviteText.getEditText().getText().toString().trim();
+        Intent intent = new Intent(PlanActivity.this,RegisterActivity.class);
+        String Plan = PlanText.getEditText().getText().toString().trim();
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");
@@ -45,6 +45,7 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
         String tl = extras.getString("taille");
         String objPs = extras.getString("ObjPoids");
         String objSem = extras.getString("ObjSemaines");
+        String act = extras.getString("Activite");
 
         intent.putExtra("nom",np);
         intent.putExtra("age",ag);
@@ -53,10 +54,12 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
         intent.putExtra("taille",tl);
         intent.putExtra("ObjPoids",objPs);
         intent.putExtra("ObjSemaines",objSem);
-        intent.putExtra("Activite",Act);
+        intent.putExtra("Activite",act);
+        intent.putExtra("Plan",Plan);
 
         startActivity(intent);
 
-         Toast.makeText(ActivitePhysiqueActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+objPs+" "+objSem+" "+Act, Toast.LENGTH_LONG).show();
+        //Toast.makeText(PlanActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "
+                //+objPs+" "+objSem+" "+act+" "+Plan, Toast.LENGTH_LONG).show();
     }
 }

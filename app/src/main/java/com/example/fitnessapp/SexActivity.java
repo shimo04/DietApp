@@ -34,16 +34,20 @@ public class SexActivity extends AppCompatActivity implements View.OnClickListen
 
     private void sexAdd()
     {
+        Intent intent = new Intent(SexActivity.this,PoidsActivity.class);
         String Sx = SxText.getEditText().getText().toString().trim();
 
-        Intent intent = new Intent(SexActivity.this,PoidsActivity.class);
-        intent.putExtra("",Sx);
+        Bundle extras = getIntent().getExtras();
+        String np = extras.getString("nom");
+        String ag = extras.getString("age");
 
-        String Ag = getIntent().getStringExtra("");
+        intent.putExtra("nom",np);
+        intent.putExtra("age",ag);
+        intent.putExtra("sex",Sx);
 
         startActivity(intent);
 
-        Toast.makeText(SexActivity.this,Ag+" "+Sx+" ", Toast.LENGTH_LONG).show();
+        //Toast.makeText(SexActivity.this,np+" "+ag+" "+Sx, Toast.LENGTH_LONG).show();
     }
 
 }
