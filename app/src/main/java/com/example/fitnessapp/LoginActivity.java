@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        switch (v.getId())
        {
            case R.id.Register:
-                startActivity(new Intent(LoginActivity.this,NomPrenomActivity.class));
+                startActivity(new Intent(LoginActivity.this,InfoActivity.class));
                 break;
            case R.id.Login:
                userLogin();

@@ -68,8 +68,8 @@
         app:srcCompat="@drawable/cardlogin" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/Email"
         android:layout_width="300dp"
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
@@ -78,6 +78,7 @@
         android:textColorHint="#171717"
         app:boxStrokeColor="#171717"
         app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_email"
         app:hintTextColor="#0E0E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,8 +95,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/Password"
         android:layout_width="300dp"
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
@@ -106,7 +107,9 @@
         android:textColor="@color/black"
         android:textColorHint="#171717"
         app:boxStrokeColor="#171717"
+        android:inputType="textPassword"
         app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_pass"
         app:hintTextColor="#0E0E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,3 +185,9 @@
         app:layout_constraintVertical_bias="0.577" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+

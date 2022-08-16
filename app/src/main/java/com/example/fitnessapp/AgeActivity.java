@@ -34,13 +34,13 @@ public class AgeActivity extends AppCompatActivity implements View.OnClickListen
 
     private void ageAdd()
     {
-        Intent intent = new Intent(AgeActivity.this,SexActivity.class);
         String Ag = AgText.getEditText().getText().toString().trim();
 
-        String Np = getIntent().getStringExtra("nom");
+        Intent intent = new Intent(AgeActivity.this,SexActivity.class);
 
-        intent.putExtra("nom",Np);
         intent.putExtra("age",Ag);
+
+        String Np = getIntent().getStringExtra("");
 
         startActivity(intent);
 
