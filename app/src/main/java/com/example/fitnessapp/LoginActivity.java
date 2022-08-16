@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        switch (v.getId())
        {
            case R.id.Register:
-                startActivity(new Intent(LoginActivity.this,InfoActivity.class));
+                startActivity(new Intent(LoginActivity.this,NomPrenomActivity.class));
                 break;
            case R.id.Login:
                userLogin();
@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                if (task.isSuccessful())
                {
                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                   ProgressBar.setVisibility(View.VISIBLE);
                }
                else
                {
@@ -96,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                   // user.sendEmailVerification();
                    //Toast.makeText(LoginActivity.this,"Check your Email",Toast.LENGTH_LONG).show();
                    Toast.makeText(LoginActivity.this,"Failed to connect", Toast.LENGTH_LONG).show();
-                   ProgressBar.setVisibility(View.INVISIBLE);
+                   ProgressBar.setVisibility(View.GONE);
                }
            }
        });
