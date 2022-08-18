@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class AgeActivity extends AppCompatActivity implements View.OnClickListener {
+public class AgeActivity extends AppCompatActivity implements View.OnClickListener
+{
     private TextInputLayout AgText ;
     private Button SvBtn ;
 
@@ -19,6 +20,9 @@ public class AgeActivity extends AppCompatActivity implements View.OnClickListen
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
+
+       // getSupportActionBar().setTitle("Age");
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AgText = (TextInputLayout)findViewById(R.id.AgeT);
 
