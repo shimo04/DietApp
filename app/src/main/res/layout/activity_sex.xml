@@ -5,45 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SexActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allan"
+        android:fontFamily="@font/give_you_glory"
         android:text="C'est quoi ton sex?"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/SexT"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#171717"
-        app:boxStrokeColor="#171717"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#0E0E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RadioGroup
+        android:id="@+id/Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="230dp"
+        android:orientation="horizontal"
+        android:checkedButton="@id/SexMale"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.069">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Sex" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <RadioButton
+            android:id="@+id/SexMale"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:drawableStart="@drawable/ic_male"
+            android:drawableLeft="@drawable/ic_male"
+            android:background="@drawable/male_femelle_selector"
+            android:button="@android:color/transparent"
+            android:padding="20dp"
+            android:gravity="center"
+            android:text="Male"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="20sp"
+            android:textColor="@drawable/male_femelle_color_selector"
+            android:drawableTint="@drawable/male_femelle_color_selector"/>
+
+        <RadioButton
+            android:id="@+id/SexFemale"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_female"
+            android:drawableLeft="@drawable/ic_female"
+            android:background="@drawable/male_femelle_selector"
+            android:button="@android:color/transparent"
+            android:padding="15dp"
+            android:gravity="center"
+            android:text="Femelle"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="20sp"
+            android:textColor="@drawable/male_femelle_color_selector"
+            android:drawableTint="@drawable/male_femelle_color_selector"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/Suivant"
@@ -51,7 +79,6 @@
         android:layout_height="51dp"
         android:text="Suivant"
         app:backgroundTint="#72C2E9"
-        app:iconTint="#0B0B0B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

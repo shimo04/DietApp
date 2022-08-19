@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ObjectifPoidsActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextInputLayout ObjPsText, ObjSemText ;
+    private EditText ObjPsText, ObjSemText ;
     private Button SvBtn ;
+    private TextView PoidsActText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -19,11 +23,17 @@ public class ObjectifPoidsActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_objectif_poids);
 
-        ObjPsText = (TextInputLayout)findViewById(R.id.EmailT);
-        ObjSemText = (TextInputLayout)findViewById(R.id.SemaineObjT);
+        ObjPsText = (EditText)findViewById(R.id.PoidsObjT);
+        ObjSemText = (EditText)findViewById(R.id.SemaineObjT);
+        PoidsActText = (TextView)findViewById(R.id.PoidsAct);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
+
+        Bundle extras = getIntent().getExtras();
+        String ps = extras.getString("poids");
+        PoidsActText.setText(ps);
+
     }
 
     @Override
@@ -35,8 +45,21 @@ public class ObjectifPoidsActivity extends AppCompatActivity implements View.OnC
     private void objectifPoidsSemaines()
     {
         Intent intent = new Intent(ObjectifPoidsActivity.this,ActivitePhysiqueActivity.class);
-        String Sem = ObjSemText.getEditText().getText().toString().trim();
-        String PsObj = ObjPsText.getEditText().getText().toString().trim();
+        String Sem = ObjSemText.getText().toString().trim();
+        String PsObj = ObjPsText.getText().toString().trim();
+
+        if (PsObj.isEmpty())
+        {
+            ObjPsText.setError("saisissez votre objectif");
+            ObjPsText.requestFocus();
+            return;
+        }
+        else if (Sem.isEmpty())
+        {
+            ObjSemText.setError("saisissez nombre de semaines");
+            ObjSemText.requestFocus();
+            return;
+        }
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");
@@ -55,6 +78,6 @@ public class ObjectifPoidsActivity extends AppCompatActivity implements View.OnC
 
         startActivity(intent);
 
-       // Toast.makeText(ObjectifPoidsActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+PsObj+" "+Sem, Toast.LENGTH_LONG).show();
+        Toast.makeText(ObjectifPoidsActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+PsObj+" "+Sem, Toast.LENGTH_LONG).show();
     }
 }

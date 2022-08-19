@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 public class TailleActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextInputLayout TlText ;
+    private EditText TlText ;
     private Button SvBtn ;
 
     @Override
@@ -20,7 +21,7 @@ public class TailleActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taille);
 
-        TlText = (TextInputLayout)findViewById(R.id.TailleT);
+        TlText = (EditText) findViewById(R.id.TailleT);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
@@ -35,7 +36,14 @@ public class TailleActivity extends AppCompatActivity implements View.OnClickLis
     private void tailleAdd()
     {
         Intent intent = new Intent(TailleActivity.this,ObjectifPoidsActivity.class);
-        String Tl = TlText.getEditText().getText().toString().trim();
+        String Tl = TlText.getText().toString().trim();
+
+        if (Tl.isEmpty())
+        {
+            TlText.setError("saisissez votre Age");
+            TlText.requestFocus();
+            return;
+        }
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");
@@ -51,6 +59,6 @@ public class TailleActivity extends AppCompatActivity implements View.OnClickLis
 
         startActivity(intent);
 
-        //Toast.makeText(TailleActivity.this,np+" "+ag+" "+sx+" "+ps+" "+Tl, Toast.LENGTH_LONG).show();
+        Toast.makeText(TailleActivity.this,np+" "+ag+" "+sx+" "+ps+" "+Tl, Toast.LENGTH_LONG).show();
     }
 }

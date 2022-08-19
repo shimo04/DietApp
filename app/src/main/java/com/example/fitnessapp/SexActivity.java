@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class SexActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextInputLayout SxText ;
+public class SexActivity extends AppCompatActivity implements View.OnClickListener
+{
+    private RadioGroup GenderText;
+    private RadioButton SxText;
     private Button SvBtn ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,7 +25,7 @@ public class SexActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sex);
 
-        SxText = (TextInputLayout)findViewById(R.id.SexT);
+        GenderText = (RadioGroup)findViewById(R.id.Gender);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
@@ -34,8 +39,11 @@ public class SexActivity extends AppCompatActivity implements View.OnClickListen
 
     private void sexAdd()
     {
+        int radioId = GenderText.getCheckedRadioButtonId();
+        SxText = findViewById(radioId);
+        String Sx = SxText.getText().toString().trim();
+
         Intent intent = new Intent(SexActivity.this,PoidsActivity.class);
-        String Sx = SxText.getEditText().getText().toString().trim();
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");

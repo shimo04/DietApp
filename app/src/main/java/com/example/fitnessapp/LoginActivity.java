@@ -34,9 +34,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //getSupportActionBar().setTitle("");
-       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable((getResources().getColor(R.color.teal_200))));
-
         registerText = (TextView) findViewById(R.id.Register);
         registerText.setOnClickListener(this);
 
@@ -107,9 +104,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        });
 
    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
 }

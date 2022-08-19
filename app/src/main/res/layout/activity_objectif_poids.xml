@@ -5,70 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ObjectifPoidsActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/toolbar"
+        tools:layout_editor_absoluteX="-53dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allan"
+        android:fontFamily="@font/give_you_glory"
         android:text="Votre Objectif !"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/EmailT"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#171717"
-        app:boxStrokeColor="#171717"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#0E0E0E"
+    <EditText
+        android:id="@+id/PoidsObjT"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:hint="  "
+        android:inputType="numberDecimal"
+        android:textColor="#615F5F"
+        android:textColorHint="#72C2E9"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.069">
+        app:layout_constraintVertical_bias="0.102" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Poids objectif" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kg"
+        app:layout_constraintBottom_toBottomOf="@+id/PoidsObjT"
+        app:layout_constraintEnd_toEndOf="@+id/PoidsObjT"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="@+id/PoidsObjT"
+        app:layout_constraintTop_toTopOf="@+id/PoidsObjT" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
         android:id="@+id/SemaineObjT"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#171717"
-        app:boxStrokeColor="#171717"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#0E0E0E"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:hint=" "
+        android:inputType="number"
+        android:textColor="#72C2E9"
+        android:textColorHint="#72C2E9"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/Suivant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.651"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailT"
-        app:layout_constraintVertical_bias="0.077">
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/include3"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.43" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Nombre de Semaines" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
+        app:layout_constraintEnd_toStartOf="@+id/PoidsObjT"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toEndOf="@+id/PoidsAct"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.154"
+        app:srcCompat="@drawable/ic_to_icon" />
+
+    <TextView
+        android:id="@+id/PoidsAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="22dp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.106" />
 
     <Button
         android:id="@+id/Suivant"
@@ -95,5 +128,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Suivant" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de semaines pour Atteindre votre objectif !"
+        android:textColor="#72C2E9"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SemaineObjT"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
