@@ -11,39 +11,79 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allan"
+        android:fontFamily="@font/give_you_glory"
         android:text="Ton activité Physique !"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <RadioGroup
         android:id="@+id/ActivitePhyT"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#171717"
-        app:boxStrokeColor="#171717"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#0E0E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:checkedButton="@id/PeuAct"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Suivant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.069">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Activité Physique" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <RadioButton
+            android:id="@+id/PeuAct"
+            android:layout_width="367dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/type_activite_selector"
+            android:button="@android:color/transparent"
+            android:drawableTint="@drawable/type_activite_color_selector"
+            android:fontFamily="monospace"
+            android:padding="20dp"
+            android:text="Pas ou peu d'activité"
+            android:textColor="@drawable/type_activite_color_selector"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/ModereAct"
+            android:layout_width="367dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/type_activite_selector"
+            android:button="@android:color/transparent"
+            android:drawableTint="@drawable/type_activite_color_selector"
+            android:fontFamily="monospace"
+            android:padding="15dp"
+            android:text="Moderée"
+            android:textColor="@drawable/type_activite_color_selector"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/IntenseAct"
+            android:layout_width="367dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/type_activite_selector"
+            android:button="@android:color/transparent"
+            android:drawableTint="@drawable/type_activite_color_selector"
+            android:fontFamily="monospace"
+            android:padding="15dp"
+            android:text="Intense"
+            android:textColor="@drawable/type_activite_color_selector"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/Suivant"
@@ -51,7 +91,6 @@
         android:layout_height="51dp"
         android:text="Suivant"
         app:backgroundTint="#72C2E9"
-        app:iconTint="#0B0B0B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

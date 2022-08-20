@@ -6,43 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".PlanActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/allan"
-        android:text="Choisissez un programme!"
-        android:textSize="34sp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="329dp"
+        android:layout_height="9dp"
+        android:progress="45"
+        android:progressTint="#72C2E9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/PlanT"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#171717"
-        app:boxStrokeColor="#171717"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#0E0E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.069">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Programme" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/Suivant" />
 
     <Button
         android:id="@+id/Suivant"
@@ -58,16 +32,94 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.917" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="329dp"
-        android:layout_height="9dp"
-        android:progress="92"
-        android:progressTint="#72C2E9"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Suivant" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/give_you_glory"
+            android:gravity="center"
+            android:text="Choisissez un programme"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/Gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="230dp"
+                    android:orientation="horizontal"
+                    android:checkedButton="@id/SexMale">
+
+                    <RadioButton
+                        android:id="@+id/SexMale"
+                        android:layout_width="250dp"
+                        android:layout_height="360dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/type_activite_selector"
+                        android:button="@android:color/transparent"
+                        android:padding="20dp"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:fontFamily="monospace"
+                        android:textSize="20sp"
+                        android:textColor="@drawable/type_activite_color_selector"
+                        android:drawableTint="@drawable/type_activite_color_selector"/>
+
+                    <RadioButton
+                        android:id="@+id/SexFemale"
+                        android:layout_width="275dp"
+                        android:layout_height="360dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/type_activite_selector"
+                        android:button="@android:color/transparent"
+                        android:padding="15dp"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:fontFamily="monospace"
+                        android:textSize="20sp"
+                        android:textColor="@drawable/type_activite_color_selector"
+                        android:drawableTint="@drawable/type_activite_color_selector"/>
+
+                    <RadioButton
+                        android:id="@+id/SexFemajle"
+                        android:layout_width="275dp"
+                        android:layout_height="360dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/type_activite_selector"
+                        android:button="@android:color/transparent"
+                        android:padding="15dp"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:fontFamily="monospace"
+                        android:textSize="20sp"
+                        android:textColor="@drawable/type_activite_color_selector"
+                        android:drawableTint="@drawable/type_activite_color_selector"/>
+                </RadioGroup>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

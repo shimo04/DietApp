@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ActivitePhysiqueActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextInputLayout ActiviteText ;
+    private RadioGroup ActiviteText ;
+    private RadioButton Activite;
     private Button SvBtn ;
 
     @Override
@@ -20,7 +23,7 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activite_physique);
 
-        ActiviteText = (TextInputLayout)findViewById(R.id.ActivitePhyT);
+        ActiviteText = (RadioGroup) findViewById(R.id.ActivitePhyT);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
@@ -34,8 +37,11 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
 
     private void activitePhysique()
     {
+        int radioId = ActiviteText.getCheckedRadioButtonId();
+        Activite = findViewById(radioId);
+        String Act = Activite.getText().toString().trim();
+
         Intent intent = new Intent(ActivitePhysiqueActivity.this,PlanActivity.class);
-        String Act = ActiviteText.getEditText().getText().toString().trim();
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");
