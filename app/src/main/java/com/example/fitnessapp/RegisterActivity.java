@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private TextInputLayout EmailText, PassText ;
+    private EditText EmailText, PassText ;
     private Button SvBtn ;
 
     private FirebaseAuth mAuth;
@@ -34,8 +34,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mAuth = FirebaseAuth.getInstance();
 
-        EmailText = (TextInputLayout)findViewById(R.id.EmailT);
-        PassText = (TextInputLayout)findViewById(R.id.PassT);
+        EmailText = (EditText) findViewById(R.id.EmailT);
+        PassText = (EditText) findViewById(R.id.PassT);
 
         SvBtn =(Button)findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
@@ -50,8 +50,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void registerUser()
     {
         Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-        String email = EmailText.getEditText().getText().toString().trim();
-        String pass = PassText.getEditText().getText().toString().trim();
+        String email = EmailText.getText().toString().trim();
+        String pass = PassText.getText().toString().trim();
+
+        if (email.isEmpty())
+        {
+            EmailText.setError("saisissez votre adresse mail");
+            EmailText.requestFocus();
+            return;
+        }
+        else if (pass.isEmpty())
+        {
+            PassText.setError("saisissez un mot de passe");
+            PassText.requestFocus();
+            return;
+        }
 
         Bundle extras = getIntent().getExtras();
         String np = extras.getString("nom");

@@ -59,6 +59,6 @@ public class TailleActivity extends AppCompatActivity implements View.OnClickLis
 
         startActivity(intent);
 
-        Toast.makeText(TailleActivity.this,np+" "+ag+" "+sx+" "+ps+" "+Tl, Toast.LENGTH_LONG).show();
+        //Toast.makeText(TailleActivity.this,np+" "+ag+" "+sx+" "+ps+" "+Tl, Toast.LENGTH_LONG).show();
     }
 }

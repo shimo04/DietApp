@@ -3,21 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable-v24/gender_background_checked.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable-v24/type_activite_background_checked.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable-v24/type_activite_background_unchecked.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable/gender_background_unchecked.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable/male_femelle_color_selector.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable/male_femelle_selector.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable/type_activite_color_selector.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/drawable/type_activite_selector.xml" value="0.3" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_activite_physique.xml" value="0.371875" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_age.xml" value="0.3446557971014493" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_info.xml" value="0.3446557971014493" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_objectif_poids.xml" value="0.371875" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_plan.xml" value="0.25" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_poids.xml" value="0.3446557971014493" />
-        <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/DietApp/app/src/main/res/layout/activity_sex.xml" value="0.371875" />
         <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/FitnessApp/app/src/main/res/drawable/ic_pass.xml" value="0.2615" />
         <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/FitnessApp/app/src/main/res/layout/activity_activite_physique.xml" value="0.371875" />
         <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/FitnessApp/app/src/main/res/layout/activity_age.xml" value="0.371875" />
@@ -32,11 +17,14 @@
         <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/FitnessApp/app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="..\:/Users/CHAYMA/AndroidStudioProjects/FitnessApp/app/src/main/res/menu/main_menu.xml" value="0.37083333333333335" />
         <entry key="app/src/main/res/drawable-v24/gender_background_checked.xml" value="0.166" />
+        <entry key="app/src/main/res/drawable-v24/programme_background_checked.xml" value="0.1695" />
+        <entry key="app/src/main/res/drawable-v24/programme_background_unchecked.xml" value="0.1695" />
         <entry key="app/src/main/res/drawable/gender_background.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/gender_background_unchecked.xml" value="0.1685" />
         <entry key="app/src/main/res/drawable/male_femelle.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/male_femelle_color_selector.xml" value="0.1685" />
         <entry key="app/src/main/res/drawable/male_femelle_selector.xml" value="0.166" />
+        <entry key="app/src/main/res/drawable/programme_selector.xml" value="0.1695" />
         <entry key="app/src/main/res/layout/activity_activite_physique.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/activity_age.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_info.xml" value="0.22" />
@@ -44,9 +32,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_nom_prenom.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_objectif_poids.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_plan.xml" value="0.14764492753623187" />
+        <entry key="app/src/main/res/layout/activity_plan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_poids.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register_activity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_poids_duree.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_programme.xml" value="0.25" />
@@ -54,6 +42,8 @@
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.13903985507246377" />
         <entry key="app/src/main/res/layout/activity_taille.xml" value="0.14764492753623187" />
         <entry key="app/src/main/res/layout/gender_background.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar2.xml" value="0.1213768115942029" />
       </map>
     </option>
   </component>

@@ -63,6 +63,6 @@ public class ActivitePhysiqueActivity extends AppCompatActivity implements View.
 
         startActivity(intent);
 
-         Toast.makeText(ActivitePhysiqueActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+objPs+" "+objSem+" "+Act, Toast.LENGTH_LONG).show();
+         //Toast.makeText(ActivitePhysiqueActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+objPs+" "+objSem+" "+Act, Toast.LENGTH_LONG).show();
     }
 }
