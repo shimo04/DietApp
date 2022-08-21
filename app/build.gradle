@@ -2,7 +2,11 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
 }
-
+android {
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
 android {
     compileSdk 32
 

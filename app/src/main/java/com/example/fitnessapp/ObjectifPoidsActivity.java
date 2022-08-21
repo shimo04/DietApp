@@ -77,7 +77,6 @@ public class ObjectifPoidsActivity extends AppCompatActivity implements View.OnC
         intent.putExtra("ObjSemaines",PsObj);
 
         startActivity(intent);
-
-        Toast.makeText(ObjectifPoidsActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+PsObj+" "+Sem, Toast.LENGTH_LONG).show();
+        //Toast.makeText(ObjectifPoidsActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "+PsObj+" "+Sem, Toast.LENGTH_LONG).show();
     }
 }

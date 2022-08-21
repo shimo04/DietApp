@@ -19,16 +19,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
-{
-    private EditText EmailText, PassText ;
-    private Button SvBtn ;
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+    private EditText EmailText, PassText;
+    private Button SvBtn;
 
     private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -37,30 +35,25 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         EmailText = (EditText) findViewById(R.id.EmailT);
         PassText = (EditText) findViewById(R.id.PassT);
 
-        SvBtn =(Button)findViewById(R.id.Suivant);
+        SvBtn = (Button) findViewById(R.id.Suivant);
         SvBtn.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View view)
-    {
+    public void onClick(View view) {
         registerUser();
     }
 
-    private void registerUser()
-    {
-        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+    private void registerUser() {
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
         String email = EmailText.getText().toString().trim();
         String pass = PassText.getText().toString().trim();
 
-        if (email.isEmpty())
-        {
+        if (email.isEmpty()) {
             EmailText.setError("saisissez votre adresse mail");
             EmailText.requestFocus();
             return;
-        }
-        else if (pass.isEmpty())
-        {
+        } else if (pass.isEmpty()) {
             PassText.setError("saisissez un mot de passe");
             PassText.requestFocus();
             return;
@@ -77,58 +70,50 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String act = extras.getString("Activite");
         String plan = extras.getString("Plan");
 
-        intent.putExtra("nom",np);
-        intent.putExtra("age",ag);
-        intent.putExtra("sex",sx);
-        intent.putExtra("poids",ps);
-        intent.putExtra("taille",tl);
-        intent.putExtra("ObjPoids",objPs);
-        intent.putExtra("ObjSemaines",objSem);
-        intent.putExtra("Activite",act);
-        intent.putExtra("Plan",plan);
-        intent.putExtra("Email",email);
-        intent.putExtra("Password",pass);
+        intent.putExtra("nom", np);
+        intent.putExtra("age", ag);
+        intent.putExtra("sex", sx);
+        intent.putExtra("poids", ps);
+        intent.putExtra("taille", tl);
+        intent.putExtra("ObjPoids", objPs);
+        intent.putExtra("ObjSemaines", objSem);
+        intent.putExtra("Activite", act);
+        intent.putExtra("Plan", plan);
+        intent.putExtra("Email", email);
+        intent.putExtra("Password", pass);
 
-       // startActivity(intent);
+        // startActivity(intent);
 
         //Toast.makeText(RegisterActivity.this,np+" "+ag+" "+sx+" "+ps+" "+tl+" "
-               // +objPs+" "+objSem+" "+act+" "+plan+" "+email+" "+pass, Toast.LENGTH_LONG).show();
+        // +objPs+" "+objSem+" "+act+" "+plan+" "+email+" "+pass, Toast.LENGTH_LONG).show();
 
-        mAuth.createUserWithEmailAndPassword(email,pass)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>()
-                                                                          {
-                                                                              @Override
-                                                                              public void onComplete(@NonNull Task<AuthResult> task)
-                                                                              {
-                                                                                  if(task.isSuccessful())
-                                                                                  {
-                                                                                      User user = new User (np,ag,sx,ps,tl,objPs,objSem,act,plan,email,pass);
-                                                                                      FirebaseDatabase.getInstance().getReference("Users")
-                                                                                              .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
-                                                                                              .addOnCompleteListener(new OnCompleteListener<Void>()
-                                                                                      {
-                                                                                          @Override
-                                                                                          public void onComplete(@NonNull Task<Void> task)
-                                                                                          {
-                                                                                              if (task.isSuccessful())
-                                                                                              {
-                                                                                                  Toast.makeText(RegisterActivity.this,"User est ajouté",Toast.LENGTH_LONG).show();
-                                                                                                  startActivity(intent);
+        mAuth.createUserWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                           @Override
+                                           public void onComplete(@NonNull Task<AuthResult> task) {
+                                               if (task.isSuccessful()) {
+                                                   User user = new User(np, ag, sx, ps, tl, objPs, objSem, act, plan, email, pass);
+                                                   FirebaseDatabase.getInstance().getReference("Users")
+                                                           .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                                                           .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                               @Override
+                                                               public void onComplete(@NonNull Task<Void> task) {
+                                                                   if (task.isSuccessful()) {
+                                                                       Toast.makeText(RegisterActivity.this, "User est ajouté", Toast.LENGTH_LONG).show();
+                                                                       startActivity(intent);
+                                                                   } else {
+                                                                       Toast.makeText(RegisterActivity.this, "Failed to Register", Toast.LENGTH_LONG).show();
 
-                                                                                              }
-                                                                                              else
-                                                                                              {
-                                                                                                  Toast.makeText(RegisterActivity.this,"Failed to Register", Toast.LENGTH_LONG).show();
-
-                                                                                              }
-                                                                                          }
-                                                                                      });
-                                                                                  }
-                                                                              }
-                                                                          }
-        );
+                                                                   }
+                                                               }
+                                                           });
+                                               }
+                                           }
+                                       }
+                );
 
     }
+}
 
     //if (Patterns.EMAIL_ADDRESS.matcher(Em).matches())
     //{
@@ -136,4 +121,3 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     //EmailText.requestFocus();
     //return;
     //}
-}

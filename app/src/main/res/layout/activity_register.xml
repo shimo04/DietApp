@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
-    <include layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/textView"
@@ -23,16 +22,16 @@
 
     <EditText
         android:id="@+id/EmailT"
-        android:layout_width="wrap_content"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="monospace"
-        android:gravity="center"
         android:hint="Email"
         android:inputType="text"
         android:textColor="#615F5F"
-        android:textColorHint="#72C2E9"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/mail"
+        android:drawablePadding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -42,16 +41,16 @@
 
     <EditText
         android:id="@+id/PassT"
-        android:layout_width="wrap_content"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="monospace"
-        android:gravity="center"
         android:hint="Mot de passe"
         android:inputType="textPassword"
         android:textColor="#615F5F"
-        android:textColorHint="#72C2E9"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="6dp"
         app:layout_constraintBottom_toTopOf="@+id/Suivant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -78,7 +77,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="329dp"
         android:layout_height="9dp"
-        android:progress="11"
+        android:progress="100"
         android:progressTint="#72C2E9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
